@@ -1,31 +1,23 @@
-import { HfInference } from '@huggingface/inference';
+import { HfInference } from "@huggingface/inference";
 
-export async function processWithAI(contentUrl, contentType) {
-  const HUGGING_FACE_TOKEN = import.meta.env.HUGGING_FACE_TOKEN;
-  if (!HUGGING_FACE_TOKEN) {
-    console.error('Hugging Face token not found. Please set HUGGING_FACE_TOKEN in .env');
-    return contentUrl;
-  }
+const hf = new HfInference("YOUR_HUGGING_FACE_TOKEN"); // Replace with your Hugging Face token
 
-  const inference = new HfInference(HUGGING_FACE_TOKEN);
-
-  if (contentType.startsWith('image')) {
-    const img = new Image();
-    img.src = contentUrl;
-    await img.decode();
-
-    try {
-      const response = await inference.textToImage({
-        inputs: "A futuristic AR studio with neon lights",
-        model: "stabilityai/stable-diffusion-3",
+export async function processWithAI(content, type = "text") {
+  try {
+    if (type === "text") {
+      const response = await hf.textGeneration({
+        model: "distilgpt2",
+        inputs: content,
+        parameters: { max_length: 50 },
       });
-
-      console.log('AI Enhanced Image:', response);
-      return response; // URL یا داده تصویر بهبودیافته
-    } catch (error) {
-      console.error('Error with Hugging Face inference:', error);
-      return contentUrl;
+      return response.generated_text;
+    } else if (type === "model") {
+      // Simulate AI enhancement for 3D models (custom logic can be added)
+      return content + "_enhanced";
     }
+    return content;
+  } catch (error) {
+    console.error("AI processing error:", error);
+    throw error;
   }
-  return contentUrl;
 }

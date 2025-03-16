@@ -1,0 +1,67 @@
+/* global.css */
+
+/* تعریف فونت‌ها */
+@font-face {
+  font-family: 'LoversQuarrel';
+  src: url('/fonts/LoversQuarrel-Regular.ttf') format('truetype');
+}
+
+/* تنظیمات پایه */
+:root {
+  --color-neon-blue: #00f0ff;
+  --color-neon-purple: #d400ff;
+  --gradient-neon: linear-gradient(to right, var(--color-neon-blue), var(--color-neon-purple));
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.5s ease;
+}
+
+/* کلاس‌های نئون سفارشی */
+.text-neonBlue { 
+  color: var(--color-neon-blue); 
+  text-shadow: 0 0 5px var(--color-neon-blue);
+}
+
+.text-neonPurple { 
+  color: var(--color-neon-purple); 
+  text-shadow: 0 0 5px var(--color-neon-purple);
+}
+
+.bg-neonGradient { 
+  background: var(--gradient-neon); 
+}
+
+/* جلوه‌های مخصوص حالت hover */
+.hover-neon-effect {
+  transition: all 0.3s ease;
+}
+
+.hover-neon-effect:hover {
+  transform: scale(1.05);
+}
+
+.hover-neon-blue:hover {
+  color: var(--color-neon-blue);
+  text-shadow: 
+    0 0 10px var(--color-neon-blue),
+    0 0 20px var(--color-neon-blue),
+    0 0 30px var(--color-neon-blue);
+}
+
+.hover-neon-purple:hover {
+  color: var(--color-neon-purple);
+  text-shadow: 
+    0 0 10px var(--color-neon-purple),
+    0 0 20px var(--color-neon-purple),
+    0 0 30px var(--color-neon-purple);
+}
+
+/* تنظیمات حالت تاریک */
+.dark body {
+  background-color: #121212;
+  color: #f8f8f8;
+}
