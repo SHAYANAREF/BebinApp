@@ -1,18 +1,34 @@
-"use client";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import PropTypes from 'prop-types';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export function ThemeProvider({ children, ...props }) {
+const ThemeContext = createContext({
+  theme: 'dark',
+  setTheme: () => null,
+});
+
+export const ThemeProvider = ({ children, defaultTheme = 'dark' }) => {
+  const [theme, setTheme] = useState(defaultTheme);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || defaultTheme;
+    setTheme(savedTheme);
+  }, [defaultTheme]);
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
+    } else {
+      document.body.classList.add('light-theme');
+      document.body.classList.remove('dark-theme');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
-    <NextThemesProvider {...props} enableSystem>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
-    </NextThemesProvider>
+    </ThemeContext.Provider>
   );
-}
-
-ThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-  attribute: PropTypes.string.isRequired,
-  defaultTheme: PropTypes.string.isRequired,
-  enableSystem: PropTypes.bool.isRequired,
 };
+
+export const useTheme = () => useContext(ThemeContext);
