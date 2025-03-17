@@ -1,0 +1,8 @@
+{
+  "name": "BebinApp Studio",
+  "short_name": "BebinApp",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1e2f",
+  "theme_color": "#00d4ff"
+}

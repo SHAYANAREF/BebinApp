@@ -1,31 +1,31 @@
-import { HomeComponent as Home } from '../src/components/Home.jsx';
-import AboutUs from './components/AboutUs.jsx';
-import Services from './components/Services.jsx';
-import Portfolio from './components/Portfolio.jsx';
-import Blog from './components/Blog.jsx';
-import Contact from './components/Contact.jsx';
-import Demo from './components/Demo.jsx';
-import Shop from './components/Shop.jsx';
-import Register from './components/Register.jsx';
-import Login from './components/Login.jsx';
-import Dashboard from './components/Dashboard.jsx';
-import ARScene from './ARScene.jsx';
-import AIContentGenerator from './components/AIContentGenerator.jsx';
+import { HomeComponent as Home } from './components/Home';
+import AboutUs from './components/AboutUs';
+import Services from './components/Services';
+import Portfolio from './components/Portfolio';
+import Blog from './components/Blog';
+import Contact from './components/Contact';
+import Demo from './components/Demo';
+import Shop from './components/Shop';
+import Register from './components/Register';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
+import ARScene from './ARScene';
+import AIContentGenerator from './components/AIContentGenerator';
 
 const routes = [
-{ path: '/', element: <Home /> },
-  { path: '/ar', element: <ARScene /> },
-  { path: '/ai-content-generator', element: <AIContentGenerator /> },
-  { path: '/about', element: <AboutUs /> },
-  { path: '/services', element: <Services /> },
-  { path: '/portfolio', element: <Portfolio /> },
-  { path: '/blog', element: <Blog /> },
-  { path: '/contact', element: <Contact /> },
-  { path: '/demo', element: <Demo /> },
-  { path: '/shop', element: <Shop /> },
-  { path: '/register', element: <Register /> },
-  { path: '/login', element: <Login /> },
-  { path: '/dashboard', element: <Dashboard /> },
+  { path: '/', name: 'Home', element: <Home /> },
+  { path: '/arscene', name: 'ARScene', element: <ARScene /> },
+  { path: '/ai', name: 'AIContentGenerator', element: <AIContentGenerator /> },
+  { path: '/about', name: 'About Us', element: <AboutUs /> },
+  { path: '/services', name: 'Services', element: <Services /> },
+  { path: '/portfolio', name: 'Portfolio', element: <Portfolio /> },
+  { path: '/blog', name: 'Blog', element: <Blog /> },
+  { path: '/contact', name: 'Contact', element: <Contact /> },
+  { path: '/demo', name: 'Demo', element: <Demo /> },
+  { path: '/shop', name: 'Purchase', element: <Shop /> },
+  { path: '/register', name: 'Register', element: <Register /> },
+  { path: '/login', name: 'Login', element: <Login /> },
+  { path: '/dashboard', name: 'Dashboard', element: <Dashboard /> },
 ];
 
 export default routes;

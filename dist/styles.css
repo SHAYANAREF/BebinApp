@@ -1,0 +1,11 @@
+/* Remove the font-face definition */
+
+/* Remove any usage of the LoversQuarrel font */
+body {
+  /* ...existing code... */
+  /* font-family: 'LoversQuarrel', sans-serif; */
+  font-family: sans-serif; /* Use default font */
+  /* ...existing code... */
+}
+
+/* ...existing code... */

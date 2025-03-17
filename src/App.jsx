@@ -10,7 +10,7 @@ export default function App() {
     <ThemeProvider attribute="class" defaultTheme="dark">
       <Router>
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
-          <header className="py-4 px-6 flex justify-between items-center">
+          <header className="py-4 px-6 flex items-center">
             <NeonMenu routes={routes} />
             <ThemeToggle />
           </header>
