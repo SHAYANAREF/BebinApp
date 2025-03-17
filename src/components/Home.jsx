@@ -2,14 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BackgroundPaths from './BackgroundPaths';
 import { motion } from 'framer-motion';
-import Menu from './Menu.jsx';
-
-const menuItems = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Contact', path: '/contact' },
-];
+import routes from '../routes';
+import NeonMenu from './NeonMenu';
 
 // Define your Home component
 const Home = () => {
@@ -20,7 +14,7 @@ const Home = () => {
 
       {/* Main content on top of the background */}
       <div className="relative z-20 container mx-auto px-4 md:px-6 text-center flex flex-col items-center justify-center min-h-screen text-black dark:text-white">
-        <Menu items={menuItems} />
+        <NeonMenu routes={routes} />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

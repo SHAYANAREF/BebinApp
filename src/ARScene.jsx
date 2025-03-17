@@ -1,14 +1,8 @@
 import React from 'react';
 import { Editor } from './components/Editor';
 import { motion } from 'framer-motion';
-import Menu from './components/Menu.jsx';
-
-const menuItems = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Contact', path: '/contact' },
-];
+import routes from './routes';
+import NeonMenu from './components/NeonMenu';
 
 export default function ARScene() {
   return (
@@ -28,7 +22,7 @@ export default function ARScene() {
         >
           BebinApp Studio
         </motion.h1>
-        <Menu items={menuItems} />
+        <NeonMenu routes={routes} />
       </header>
       <main className="min-h-screen flex flex-col items-center justify-center p-16 pt-48">
         <motion.div

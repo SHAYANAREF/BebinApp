@@ -12,9 +12,9 @@ const NeonMenu = ({ routes }) => {
           <Link
             key={route.path}
             to={route.path}
-            className="text-lg sm:text-xl lg:text-2xl transition-all duration-300 ease-in-out hover:scale-105 hover-neon-blue"
+            className="text-lg sm:text-xl lg:text-2xl transition-all duration-300 ease-in-out hover:scale-105 hover-neon-blue menu-item"
           >
-            {route.label}
+            {route.name}
           </Link>
         ))}
       </div>
@@ -41,7 +41,7 @@ const NeonMenu = ({ routes }) => {
               className="block py-2 text-lg hover-neon-blue"
               onClick={() => setIsOpen(false)}
             >
-              {route.label}
+              {route.name}
             </Link>
           ))}
         </motion.div>

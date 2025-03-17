@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
-import { ThemeToggle } from './components/ThemeToggle';
 import NeonMenu from './components/NeonMenu';
 import routes from './routes';
+import ThemeToggle from './components/ThemeToggle';
 
 export default function App() {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark">
       <Router>
         <div className="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
-          <header className="py-4 px-6">
+          <header className="py-4 px-6 flex justify-between items-center">
             <NeonMenu routes={routes} />
             <ThemeToggle />
           </header>
