@@ -40,8 +40,9 @@ export function Editor({ setModel }) {
     }
 
     try {
-      setFilePreview({ url: URL.createObjectURL(file), name: file.name, type });
-      setModel(URL.createObjectURL(file), file.name.split("." + fileType)[0], Date.now(), type);
+      const fileURL = URL.createObjectURL(file);
+      setFilePreview({ url: fileURL, name: file.name, type });
+      setModel(fileURL);
       setAiMessage("File processed successfully – enjoy your AR/VR content!");
     } catch (err) {
       setError("Failed to process file: " + err.message);

@@ -1,13 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import routes from '../routes';
 import NeonMenu from './NeonMenu';
+import { supabase } from '../supabaseClient';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      console.error(error);
+      alert(error.message);
+    } else {
+      console.log(data);
+      alert('Login successful!');
+      navigate('/dashboard');
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <NeonMenu routes={routes} />
       <h1 className="text-4xl font-bold text-neonBlue">Login</h1>
       <p className="text-xl mt-4">Please log in to continue.</p>
+      <form onSubmit={handleSubmit} className="flex flex-col items-center">
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="border border-gray-300 rounded-md px-4 py-2 mt-4"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="border border-gray-300 rounded-md px-4 py-2 mt-4"
+        />
+        <button type="submit" className="bg-neonBlue text-white rounded-md px-4 py-2 mt-4">Login</button>
+      </form>
     </div>
   );
 };

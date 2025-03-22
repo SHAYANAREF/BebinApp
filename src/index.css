@@ -1,12 +1,12 @@
 /* global.css */
 
-/* تعریف فونت‌ها */
+/* Font definitions */
 @font-face {
   font-family: 'LoversQuarrel';
   src: url('/public/fonts/LoversQuarrel-Regular.ttf') format('truetype');
 }
 
-/* تنظیمات پایه */
+/* Base settings */
 :root {
   --color-neon-blue: #00f0ff;
   --gradient-neon: linear-gradient(to right, var(--color-neon-blue), var(--color-neon-purple));
@@ -21,7 +21,7 @@ body {
   color: #222;
 }
 
-/* کلاس‌های نئون سفارشی */
+/* Custom neon classes */
 .text-neonBlue { 
   color: var(--color-neon-blue); 
   text-shadow: 0 0 5px var(--color-neon-blue);
@@ -36,7 +36,7 @@ body {
   background: var(--gradient-neon); 
 }
 
-/* جلوه‌های مخصوص حالت hover */
+/* Special hover effects */
 .hover-neon-effect {
   transition: all 0.3s ease;
 }
@@ -61,7 +61,7 @@ body {
     0 0 30px var(--color-neon-purple);
 }
 
-/* تنظیمات حالت تاریک */
+/* Dark mode settings */
 .menu-item {
   margin-right: 30px;
 }

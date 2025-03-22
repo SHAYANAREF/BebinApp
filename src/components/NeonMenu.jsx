@@ -9,8 +9,8 @@ const NeonMenu = ({ routes = [] }) => {
 
   return (
     <nav className="flex justify-center sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md" aria-label="Main navigation">
-      {/* نسخه دسکتاپ منو */}
-      <div className="hidden md:flex md:flex-row md:gap-12 md:p-6 w-full max-w-7xl justify-center">
+      {/* Desktop menu version */}
+      <div className="flex hidden md:flex-row md:gap-12 md:p-6 w-full max-w-7xl justify-center">
         {routes.map((route) => (
           <Link
             key={route.path}
@@ -22,9 +22,9 @@ const NeonMenu = ({ routes = [] }) => {
         ))}
       </div>
 
-      {/* دکمه منوی موبایل */}
+      {/* Mobile menu button */}
       <button
-        className="md:hidden p-4 text-neonBlue hover:text-neonPurple transition-all duration-300"
+        className="p-4 text-neonBlue hover:text-neonPurple transition-all duration-300"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
         aria-expanded={isOpen}
@@ -34,10 +34,10 @@ const NeonMenu = ({ routes = [] }) => {
         </svg>
       </button>
 
-      {/* منوی موبایل */}
+      {/* Mobile menu */}
       {isOpen && (
         <motion.div
-          className="md:hidden absolute top-16 left-0 right-0 bg-gray-900 bg-opacity-95 backdrop-blur-md p-4 z-50"
+          className="hidden md:hidden absolute top-16 left-0 right-0 bg-gray-900 bg-opacity-95 backdrop-blur-md p-4 z-50"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
