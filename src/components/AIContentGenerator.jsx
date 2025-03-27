@@ -17,9 +17,17 @@ const AIContentGenerator = () => {
     setGeneratedContent(result.generated_text);
   };
 
+  const generateGeminiContent = async () => {
+    const result = await hf.textGeneration({
+      model: 'google/gemini-1.0-pro-307b',
+      inputs: inputText,
+    });
+    setGeneratedContent(result.generated_text);
+  };
+
   const generateImage = async () => {
     const result = await hf.imageGeneration({
-      model: 'stabilityai/stable-diffusion-2',
+      model: 'runwayml/stable-diffusion-v1-5',
       inputs: inputText,
     });
     const url = URL.createObjectURL(result);
@@ -33,6 +41,7 @@ const AIContentGenerator = () => {
         <option value="gpt2">gpt2</option>
         <option value="distilgpt2">distilgpt2</option>
         <option value="google/flan-t5-small">google/flan-t5-small</option>
+        <option value="google/gemini-1.0-pro-307b">google/gemini-1.0-pro-307b</option>
       </select>
       <input
         type="text"
@@ -40,6 +49,7 @@ const AIContentGenerator = () => {
         onChange={(e) => setInputText(e.target.value)}
       />
       <button onClick={generateContent}>Generate Text</button>
+      <button onClick={generateGeminiContent}>Generate Text with Gemini</button>
       <button onClick={generateImage}>Generate Image</button>
       <button>Generate 3D Model (Not Supported)</button>
       <p>{generatedContent}</p>

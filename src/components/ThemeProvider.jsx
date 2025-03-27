@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export function ThemeProvider({ children, ...props }) {
   return (
-    <NextThemesProvider {...props} enableSystem>
+    <NextThemesProvider {...props}>
       {children}
     </NextThemesProvider>
   );
@@ -12,7 +12,4 @@ export function ThemeProvider({ children, ...props }) {
 
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  attribute: PropTypes.string.isRequired,
-  defaultTheme: PropTypes.string.isRequired,
-  enableSystem: PropTypes.bool.isRequired,
 };
